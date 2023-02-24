@@ -1,0 +1,37 @@
+//https://www.hackerrank.com/challenges/big-sorting/problem
+
+class Result {
+
+    /*
+     * Complete the 'bigSorting' function below.
+     *
+     * The function is expected to return a STRING_ARRAY.
+     * The function accepts STRING_ARRAY unsorted as parameter.
+     */
+
+    static int StringAsIntegerCompare(String s1, String s2){
+        if(s1.length() > s2.length()) return 1;
+        if(s2.length() > s1.length()) return -1;
+        
+        for(int i=0; i<s1.length(); i++){
+            if((int)s1.charAt(i) > (int)s2.charAt(i)) return  1;
+            if((int)s1.charAt(i) < (int)s2.charAt(i)) return  -1;
+        }
+        
+        return 0;
+    }
+
+    public static List<String> bigSorting(List<String> unsorted) {
+        unsorted.sort(new Comparator<String>() {
+            @Override
+            public int compare(String a, String b){
+                return StringAsIntegerCompare(a,b);
+            }
+        });
+        
+        return unsorted;
+        
+    }
+
+}
+
