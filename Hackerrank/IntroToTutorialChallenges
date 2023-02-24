@@ -1,0 +1,32 @@
+//https://www.hackerrank.com/challenges/tutorial-intro/problem
+
+class Result {
+
+    /*
+     * Complete the 'introTutorial' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts following parameters:
+     *  1. INTEGER V
+     *  2. INTEGER_ARRAY arr
+     */
+
+    public static int introTutorial(int V, List<Integer> arr) {
+        
+        int start = 0;
+        int end = arr.size() - 1;
+        
+        while(start<=end){
+            int pivot = (end+start)/2;
+            
+            if(V==arr.get(pivot)) return pivot;
+            else if(V < arr.get(pivot)){
+                end = pivot - 1;
+            }else{
+                start = pivot + 1;
+            }
+        }
+        return -1;
+    }
+
+}
